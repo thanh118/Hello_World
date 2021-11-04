@@ -8,6 +8,13 @@ pipeline {
                 echo 'this is a building step'
             }
         }
+        stage('Run Python') {
+            steps {
+                echo 'Building..'
+                sh 'pip install Faker'
+                python fake.py
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
